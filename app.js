@@ -100,7 +100,8 @@ function listUserEmails(userEmails) {
 // CREATE - add new thread to DB
 app.post("/threads", function(req, res){
     // get data from form and add to threads array
-    var email = req.body.email;
+    var email = req.sessions.user;
+    console.log(email);
     var title = req.body.title;
     var message = req.body.message;
     if(message.length < 20) {
@@ -139,7 +140,7 @@ app.get("/threads/:id/posts/new", function(req, res){
 
 app.post("/threads/:id/posts", function(req, res){
     console.log("thread's id",req.params.id);
-    var email = req.body.email;
+    var email = req.sessions.user;
     var comment = req.body.comment;
     if(comment.length < 20){
         return res.render('posts/new', {id:req.params.id, error: 'Descriptions need to be greater than 20 characters'});
