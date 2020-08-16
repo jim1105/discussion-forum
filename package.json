@@ -1,0 +1,27 @@
+{
+  "name": "discussion",
+  "version": "1.0.0",
+  "description": "discussion forum",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Jimmy Cheng",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.14.1",
+    "client-sessions": "^0.8.0",
+    "connect-multiparty": "^2.2.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.4",
+    "secure-random": "^1.1.2",
+    "sqlite": "^4.0.14",
+    "sqlite3": "^5.0.0"
+  }
+}

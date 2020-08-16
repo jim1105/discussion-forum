@@ -1,0 +1,41 @@
+<% include ../partials/header %> 
+
+ <div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h2>Welcome To Discussion board</h2>
+             <p>create a new thread, or leave a comment on any thread to interact with each other</p>
+             <p>
+                <a class="btn btn-primary btn-large" href="/threads/new">Add New Thread</a>
+             </p>
+         </div>
+     </header>
+        <table cellpadding=3 cellspacing=1 border=1>
+            <tr>
+                <th>TOPIC TITLE</th>
+                <th>DESCRIPTION</th>
+                <th>POSTS</th>
+            </tr>
+            <% threads.forEach(function(thread){ %>
+                <tr>
+                    <td>
+                        <p><%= thread.title %></strong><p>
+                        <strong>created by <%= thread.email %></strong>
+                    </td>
+                    <td><%= thread.message %></td>
+                    <td >
+                        <% posts.forEach(function(post){ %>
+                            <% if(thread.thread_id === post.thread_id){ %>
+                                <br>
+                                <p><%= post.comment %></p>
+                                <strong>commented by <%= post.email %></strong>  <br>
+                            <% } %>
+                        <% }); %>
+                        <a class="btn btn-primary btn-link" href="/threads/<%= thread.thread_id%>/posts/new">reply to post</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </table>
+
+
+<% include ../partials/footer %>
